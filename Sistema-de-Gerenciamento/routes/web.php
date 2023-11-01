@@ -13,37 +13,35 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LojasController;
-use App\Http\Controllers\ClientesController;
-use App\Http\Controllers\AnalisesController;
-use App\Http\Controllers\MotosController;
-use App\Http\Controllers\VendasController;
-use App\Http\Controllers\FornecedoresController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\LojaController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\AnaliseController;
+use App\Http\Controllers\MotoController;
+use App\Http\Controllers\VendaController;
+use App\Http\Controllers\FornecedorController;
 use Illuminate\Support\Facades\Route;
 //rotar para o controller
 
 //incial
 
-Route::get('/','LoginController@index');
+Route::get('/', [LoginController::class, 'index'])->name('login');
 
 
-//loja
-Route::get('/loja', 'LojaController@index')->name('loja');
-Route::post('/loja', 'LojaController@create')->name('adicionarLoja');
 
-//cliente
-Route::get('/cliente', 'ClienteController@index')->name('cliente');
-Route::post('/cliente', 'ClienteController@create')->name('adicionarCliente');
-//fornecedor
-Route::get('/fornecedor', 'FornecedorController@index')->name('fornecedor');
-Route::post('/fornecedor', 'FornecedorController@create')->name('adicionarFornecedor');
-//analise
-Route::get('/analise', 'AnaliseController@index')->name('analise');
+Route::get('/loja', [LojaController::class, 'index'])->name('loja');
+Route::post('/loja', [LojaController::class, 'create'])->name('adicionarLoja');
 
-//moto
-Route::get('/moto', 'MotoController@index')->name('moto');
-Route::post('/moto', 'MotoController@create')->name('adicionarMoto');
-//venda
-Route::get('/venda', 'VendaController@index')->name('venda');
-Route::post('/venda', 'VendaController@create')->name('adicionarVenda');
+Route::get('/cliente', [ClienteController::class, 'index'])->name('cliente');
+Route::post('/cliente', [ClienteController::class, 'create'])->name('adicionarCliente');
+
+Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('fornecedor');
+Route::post('/fornecedor', [FornecedorController::class, 'create'])->name('adicionarFornecedor');
+
+Route::get('/analise', [AnaliseController::class, 'index'])->name('analise');
+
+Route::get('/moto', [MotoController::class, 'index'])->name('moto');
+Route::post('/moto', [MotoController::class, 'create'])->name('adicionarMoto');
+
+Route::get('/venda', [VendaController::class, 'index'])->name('venda');
+Route::post('/venda', [VendaController::class, 'create'])->name('adicionarVenda');
+

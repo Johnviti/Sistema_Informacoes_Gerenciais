@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use App\Venda;
-use App\Loja;
-use App\Moto;
+use App\Models\Venda;
+use App\Models\Loja;
+use App\Models\Moto;
+
+
 class AnaliseController extends Controller
 {
     /**
