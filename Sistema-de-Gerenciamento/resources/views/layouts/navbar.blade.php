@@ -1,4 +1,4 @@
-<nav class="navbar">
+<div class="navbar">
     <div class="logo_item">
       <i class="bx bx-menu" id="sidebarOpen"></i>
       Mdados
@@ -12,4 +12,4 @@
       <i class='bx bx-sun' id="darkLight"></i>
       <img src="img/profile.avif" alt="" class="profile" />
     </div>
-</nav>
+  </div>

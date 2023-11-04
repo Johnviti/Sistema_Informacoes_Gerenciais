@@ -1,4 +1,4 @@
-<nav class="sidebar">
+<div class="sidebar">
     <div class="menu_content">
       <ul class="menu_items">
         <div class="menu_title menu_menu"></div>
@@ -71,7 +71,7 @@
         </div>
       </div>
     </div>
-</nav>
+  </div>
   {{-- <div class="styles">
     <div class="menu">
         <div class="item" id="btnAnalise">

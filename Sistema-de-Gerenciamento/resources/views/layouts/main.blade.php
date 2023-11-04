@@ -16,7 +16,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" href="..\img\Icomoto.png" type="image/x-icon">
-    <title>@yield('titulo')</title>
+    <title>@yield('titulo')</title> 
+    @yield('link') 
     {{-- Font Awesome --}}
     <script src="https://kit.fontawesome.com/02f2b4886a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -28,6 +29,7 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     {{-- CSS da aplicação --}}
     <link rel="stylesheet" href="..\css\style.css">
+   
   </head>
   <body>
     @include('layouts.navbar')
