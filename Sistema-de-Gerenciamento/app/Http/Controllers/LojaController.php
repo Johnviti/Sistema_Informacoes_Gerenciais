@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Loja;
+use App\Models\Loja;
 class LojaController extends Controller
 {
     /**

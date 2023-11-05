@@ -18,39 +18,169 @@ class AnaliseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        $mesAtual = date('m');
-        $anoAtual = date('Y');
+    {    
+        $melhorFuncionarioDoMes = Venda::select('funcionario.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('funcionario', 'venda.funcionario_id', '=', 'funcionario.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('funcionario.nome')
+            ->orderBy('total_vendas', 'desc')
+            ->first();
 
-        $meses = [
-            'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-        ];
-    
-        $vendasPorLoja = Venda::select('loja.nome as nome_loja', DB::raw('SUM(venda.valor_total) as valor_total'))
-        ->join('loja', 'venda.loja_id', '=', 'loja.id')
-        //->whereMonth('venda.created_at', '=', $mesAtual)
-        //->whereYear('venda.created_at', '=', $anoAtual)
-        ->groupBy('loja.nome')
-        ->orderByDesc('valor_total') // Ordena em ordem decrescente pelo valor total
-        ->take(4) // Limita os resultados às 4 lojas com maiores vendas
-        ->get();
+        $melhorLojaDoMes = Venda::select('loja.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('loja', 'venda.loja_id', '=', 'loja.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('loja.nome')
+            ->orderBy('total_vendas', 'desc')
+            ->first();
 
-        $lojaMaisVendida = $vendasPorLoja->first();
-
-        $lojas = Loja::all();
-        $motos = Moto::all();
-
-
-
-        // $funcionarioMaisVendedor = ;
-
-        // $motoMaisVendida = ;
-
-        // $lojaMaiorReceita = ;
+        $motoMaisVendidaMes = Venda::select('moto_id', 'moto.nome', DB::raw('COUNT(*) as quantidade'))
+            ->join('moto', 'venda.moto_id', '=', 'moto.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('moto_id', 'moto.nome')
+            ->orderByDesc('quantidade')
+            ->first();
 
 
-        dd($vendasPorLoja, $lojaMaisVendida, $lojas, $motos);
-        return view('analise', compact( ));
-    }
+        $comparacaoVendasLojas = Venda::select('loja_id', 'loja.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('loja', 'venda.loja_id', '=', 'loja.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('loja_id', 'loja.nome')
+            ->orderBy('total_vendas', 'desc')
+            ->get();
 
+        
+        foreach ($comparacaoVendasLojas as $loja) {
+            $nomeLoja[] = "'".$loja->nome."'";
+            $totalVendas[] = $loja->total_vendas;
+        }
+
+        $nomeLoja = implode(',', $nomeLoja);
+        $totalVendas = implode(',', $totalVendas);
+
+
+        $comparacaoVendasLojasAno = Venda::select('loja_id', 'loja.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('loja', 'venda.loja_id', '=', 'loja.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->groupBy('loja_id', 'loja.nome')
+            ->orderBy('total_vendas', 'desc')
+            ->get();
+
+        
+        foreach ($comparacaoVendasLojasAno as $loja) {
+            $nomeLojaAno[] = "'".$loja->nome."'";
+            $totalVendasAno[] = $loja->total_vendas;
+        }
+
+        $nomeLojaAno = implode(',', $nomeLojaAno);
+        $totalVendasAno = implode(',', $totalVendasAno);
+
+
+        $comparacaoVendedores = Venda::select('funcionario_id', 'funcionario.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('funcionario', 'venda.funcionario_id', '=', 'funcionario.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('funcionario_id', 'funcionario.nome')
+            ->orderBy('total_vendas', 'desc')
+            ->get();
+
+        foreach ($comparacaoVendedores as $vendedor) {
+            $nomeVendedor[] = "'".$vendedor->nome."'";
+            $totalVendasVendedor[] = $vendedor->total_vendas;
+        }
+
+        $nomeVendedor = implode(',', $nomeVendedor);
+        $totalVendasVendedor = implode(',', $totalVendasVendedor);
+
+        $comparacaoVendedoresAno = Venda::select('funcionario_id', 'funcionario.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('funcionario', 'venda.funcionario_id', '=', 'funcionario.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->groupBy('funcionario_id', 'funcionario.nome')
+            ->orderBy('total_vendas', 'desc')
+            ->get();
+
+        foreach ($comparacaoVendedoresAno as $vendedor) {
+            $nomeVendedorAno[] = "'".$vendedor->nome."'";
+            $totalVendasVendedorAno[] = $vendedor->total_vendas;
+        }
+
+        $nomeVendedorAno = implode(',', $nomeVendedorAno);
+        $totalVendasVendedorAno = implode(',', $totalVendasVendedorAno);
+        
+        $motosVendidasPorLoja = Venda::select('venda.loja_id', 'loja.nome', 'venda.moto_id', 'moto.nome', DB::raw('COUNT(*) as quantidade'))
+            ->join('loja', 'venda.loja_id', '=', 'loja.id')
+            ->join('moto', 'venda.moto_id', '=', 'moto.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('venda.loja_id', 'loja.nome', 'venda.moto_id', 'moto.nome')
+            ->orderBy('venda.loja_id')
+            ->get();
+        
+        $topMotosMaisVendidasMes = Venda::select('moto_id', 'moto.nome', DB::raw('COUNT(*) as quantidade'))
+            ->join('moto', 'venda.moto_id', '=', 'moto.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('moto_id', 'moto.nome')
+            ->orderByDesc('quantidade')
+            ->limit(3)
+            ->get();
+
+        foreach ($topMotosMaisVendidasMes as $moto) {
+            $motosMaisVendidaMes[] = "'".$moto->nome."'";
+            $quantidadeMotosMaisVendidaMes[] = $moto->quantidade;
+        }
+
+        $motosMaisVendidaMes = implode(',', $motosMaisVendidaMes);
+        $quantidadeMotosMaisVendidaMes = implode(',', $quantidadeMotosMaisVendidaMes);
+
+        $mediaAritimeticaVendasPorLoja = Venda::select('loja_id', 'loja.nome', DB::raw('AVG(valor_total) as media_vendas'))
+            ->join('loja', 'venda.loja_id', '=', 'loja.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('loja_id', 'loja.nome')
+            ->orderBy('media_vendas', 'desc')
+            ->get();    
+        
+        $totalMediaAritmetica = 0;
+        foreach ($mediaAritimeticaVendasPorLoja as $media) {
+            $totalMediaAritmetica += $media->media_vendas;
+        }
+        $mediaAritmeticaGeral = number_format($totalMediaAritmetica / count($mediaAritimeticaVendasPorLoja), 0, ',', '.');
+
+        $piorLojadoMes = Venda::select('loja_id', 'loja.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('loja', 'venda.loja_id', '=', 'loja.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('loja_id', 'loja.nome')
+            ->orderBy('total_vendas', 'asc')
+            ->first();
+
+        $ano = date('Y');
+        $mes = date('m');
+
+        return view('analise', compact(
+            'melhorFuncionarioDoMes',
+            'melhorLojaDoMes',
+            'motoMaisVendidaMes',
+            'nomeLoja',
+            'totalVendas',
+            'nomeLojaAno',
+            'totalVendasAno',
+            'nomeVendedor',
+            'totalVendasVendedor',
+            'nomeVendedorAno',
+            'totalVendasVendedorAno',
+            'motosVendidasPorLoja',
+            'topMotosMaisVendidasMes',
+            'motosMaisVendidaMes',
+            'quantidadeMotosMaisVendidaMes',
+            'mediaAritmeticaGeral',
+            'piorLojadoMes',
+            'ano',
+            'mes'
+        ));
+}
 }

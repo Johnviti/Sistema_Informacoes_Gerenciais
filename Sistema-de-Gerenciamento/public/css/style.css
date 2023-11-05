@@ -398,9 +398,17 @@ h1{
 
 
 /* Bg gradient */
-.bg-gradient-red {background-image: linear-gradient(to right, #184f36 ,rgb(43 173 71));}
+.bg-gradient-green {background-image: linear-gradient(to right, #184f36 ,rgb(43 173 71));}
 .bg-gradient-blue {background-image: linear-gradient(to right, #0091ea , #40c4ff);}
 .bg-gradient-orange {background-image: linear-gradient(to right, #f57f17 , #fbc02d );}
+.bg-gradient-red {background-image: linear-gradient(to right, #c62828 , #e53935 );}
+.bg-gradient-purple {background-image: linear-gradient(to right, #6a1b9a , #9c27b0 );}
+.bg-gradient-pink {background-image: linear-gradient(to right, #ad1457 , #d81b60 );}
+.bg-gradient-cyan {background-image: linear-gradient(to right, #006064 , #00acc1 );}
+.bg-gradient-brown {background-image: linear-gradient(to right, #4e342e , #795548 );}
+.bg-gradient-grey {background-image: linear-gradient(to right, #424242 , #616161 );}
+.bg-gradient-white {background-image: linear-gradient(to right, #f1f1f1 , #ffffff );}
+
 /* Row */
 .row {margin-bottom: 0;}
 
@@ -424,9 +432,10 @@ h1{
 /* Info */
 .info {padding: 10px 0;}
 .info article {padding: 20px; border-radius: 10px;}
+.new {padding: 9px!important; border-radius: 10px;}
 .info article i {color: #fff; font-size: 1.5rem;}
 .info article p {color: #fff; font-size: 0.9rem; text-transform: uppercase; margin: 0;}
-.info article h3 {color: #fff; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin: 0 0 20px 0;}
+.info article h3 {color: #fff; font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin: 0 0 2px 0;}
 
 /* Gráficos */
 .graficos {padding:20px;}
@@ -439,7 +448,50 @@ h1{
 .crud .titulo p {font-size: 1rem;   font-weight: 500; color: #333; margin: 0 0 20px 0; }
 .crud .registros {padding: 20px;}
 .crud .registros table img {width: 60px; margin-left: 10px;}
-
+.black-text{ color: #333!important;}
 /* Pagination */
 .pagination {padding: 20px 0;}
 
+.new-btn{
+  padding: 9px!important;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  color: #fff; 
+  font-size: 1rem; 
+  font-weight: 400; 
+  text-transform: uppercase; 
+  margin: 0 0 2px 0;
+  margin-bottom: 23px;
+}
+
+.new-btn i{
+  margin-right: 7px;
+}
+
+
+.card-menu {
+  max-width: 100px !important;
+  padding: 20px;
+  border-radius: 10px !important;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 0.25rem;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.comparativo-loja {
+  display: block; /* Inicialmente visível */
+}
+
+.comparativo-vendedores {
+  display: none; /* Inicialmente invisível */
+}

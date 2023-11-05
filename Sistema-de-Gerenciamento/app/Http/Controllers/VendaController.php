@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Venda;
-use App\Cliente;
-use App\Loja;
-use App\Funcionario;
-use App\Moto;
-use App\Metodo_Pagamento;
+use App\Models\Venda;
+use App\Models\Cliente;
+use App\Models\Loja;
+use App\Models\Funcionario;
+use App\Models\Moto;
+use App\Models\Metodo_Pagamento;
 class VendaController extends Controller
 {
     public function index()

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Moto;
-use App\Loja;
-use App\Fornecedor;
+use App\Models\Moto;
+use App\Models\Loja;
+use App\Models\Fornecedor;
 class MotoController extends Controller
 {
     /**

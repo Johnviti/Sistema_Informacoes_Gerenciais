@@ -9,4 +9,10 @@ class Fornecedor extends Model
 {
     //
     protected $table = 'fornecedor';
+
+    public function venda()
+    {
+        return $this->hasMany(Venda::class); 
+
+    }
 }

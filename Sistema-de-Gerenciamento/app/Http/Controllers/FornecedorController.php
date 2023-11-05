@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Fornecedor;
+use App\Models\Fornecedor;
 class FornecedorController extends Controller
 {
     public function index()
