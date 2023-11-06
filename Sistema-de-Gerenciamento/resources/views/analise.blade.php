@@ -52,9 +52,9 @@
                 <button type="button" class="bg-gradient-purple card z-depth-4 new-btn" onclick="showVendedores()">
                   <i class="fa-solid fa-user" style="color: #ffffff;"></i>
                 </button>
-                <button type="submit" class="bg-gradient-purple card z-depth-4 new-btn">
+                <a href="{{Route('exportarDados')}}" class="bg-gradient-purple card z-depth-4 new-btn">
                   <i class="fa-solid fa-download" style="color: #ffffff;"></i>
-                </button>
+                </a>
               </div>
             </div>
             
@@ -73,7 +73,7 @@
             </section>
           <section class="graficos col s12 m5">            
               <div class="grafico card z-depth-4">
-                <h5 class="center"> Produtos </h5>
+                <h5 class="center"> Top Motos Vendidas </h5>
                 <canvas id="myChart2" width="400" height="200"></canvas> 
               </div>            
           </section>             
@@ -83,20 +83,23 @@
         <section class="info">
           <div class="col s12 m4">
             <article class="bg-gradient-white card z-depth-4 new ">
+              <i class="fa-solid fa-sack-dollar black-text"></i>
               <i class="material-icons black-text">Média Venda/Ano</i>
               <h3 class="black-text">{{ $mediaAritmeticaGeral}}</h3>           
             </article>
           </div>
           <div class="col s12 m4">
             <article class="bg-gradient-white card z-depth-4 new ">
-              <i class="material-icons black-text">Menor Resultado</i>
+                  <i class="fa-solid fa-shop black-text"></i>
+                  <i class="material-icons black-text">Menor Resultado</i>
               <h3 class="black-text">{{$piorLojadoMes->nome}}</h3>
             </article>
           </div>
           <div class="col s12 m4">
             <article class="bg-gradient-white card z-depth-4 new ">
-              <i class="material-icons black-text">XXX</i>
-              <h3 class="black-text">AAA</h3>
+              <i class="fa-solid fa-user black-text"></i>
+              <i class="material-icons black-text">Menor Resultado</i>
+              <h3 class="black-text">{{$piorFuncionarioDoMes->nome}}</h3>
             </article>
           </div>
         </section>        

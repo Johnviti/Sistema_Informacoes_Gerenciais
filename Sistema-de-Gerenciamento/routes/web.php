@@ -45,3 +45,5 @@ Route::post('/moto', [MotoController::class, 'create'])->name('adicionarMoto');
 Route::get('/venda', [VendaController::class, 'index'])->name('venda');
 Route::post('/venda', [VendaController::class, 'create'])->name('adicionarVenda');
 
+Route::get('/exporta-dados', [AnaliseController::class, 'exportarDados'])->name('exportarDados');  
+

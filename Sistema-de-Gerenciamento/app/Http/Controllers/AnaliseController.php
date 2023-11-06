@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use App\Models\Venda;
-use App\Models\Loja;
-use App\Models\Moto;
+use App\Exports\DadosRelatorio;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 
 class AnaliseController extends Controller
@@ -158,11 +159,20 @@ class AnaliseController extends Controller
             ->orderBy('total_vendas', 'asc')
             ->first();
 
+        $piorFuncionarioDoMes = Venda::select('funcionario.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('funcionario', 'venda.funcionario_id', '=', 'funcionario.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->whereMonth('venda.created_at', date('m'))
+            ->groupBy('funcionario.nome')
+            ->orderBy('total_vendas', 'asc')
+            ->first();
+
         $ano = date('Y');
         $mes = date('m');
 
         return view('analise', compact(
             'melhorFuncionarioDoMes',
+            'piorFuncionarioDoMes',
             'melhorLojaDoMes',
             'motoMaisVendidaMes',
             'nomeLoja',
@@ -183,4 +193,27 @@ class AnaliseController extends Controller
             'mes'
         ));
 }
+
+    public function exportarDados()
+    {   
+    
+        $comparacaoVendasLojasAno = Venda::select('loja_id', 'loja.nome', DB::raw('SUM(valor_total) as total_vendas'))
+            ->join('loja', 'venda.loja_id', '=', 'loja.id')
+            ->whereYear('venda.created_at', date('Y'))
+            ->groupBy('loja_id', 'loja.nome')
+            ->orderBy('total_vendas', 'desc')
+            ->get();
+
+        
+        foreach ($comparacaoVendasLojasAno as $loja) {
+            $nomeLojaAno[] = "'".$loja->nome."'";
+            $totalVendasAno[] = $loja->total_vendas;
+        }
+
+        $nomeLojaAno = implode(',', $nomeLojaAno);
+        $totalVendasAno = implode(',', $totalVendasAno);
+
+        $dados = $comparacaoVendasLojasAno;
+        return Excel::download(new DadosRelatorio($dados), 'dados.xlsx');
+    }
 }
