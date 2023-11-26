@@ -53,5 +53,6 @@ https://www.figma.com/file/GTbFGj6xgMlOiMitg6FoXe/Prot%C3%B3tipo-MDados?type=des
 **Equipe de Desenvolvimento:**
 
 Jonh Victor (FullStack) - Figma, Front-end e Back
+
 Tainá Miranda (Back) - Banco de Dados
 
