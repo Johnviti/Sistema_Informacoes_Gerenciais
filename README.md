@@ -1,4 +1,4 @@
-**Gerenciador de informações App**
+#Gerenciador de informações App
 **Descrição**
 Este é um aplicativo Laravel dedicado ao gerenciamento eficiente de informações relacionadas a uma franquia de motos. Ele oferece recursos abrangentes para simplificar as operações diárias e a gestão de dados cruciais associados à administração de uma franquia de motos.
 
@@ -26,7 +26,7 @@ Laravel >= 8.x
 Banco de Dados (por exemplo, MySQL, SQLite)
 **Instalação**
 **Clone o repositório:**
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/Johnviti/Sistema_Informacoes_Gerenciais
 **Instale as dependências:**
 cd nome-do-repositorio
 composer install
