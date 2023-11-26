@@ -1,0 +1,68 @@
+.inputBox {
+    position: relative;
+  }
+  
+  .inputBox input, .inputBox select {
+    padding: 15px 20px;
+    outline: none;
+    background: transparent;
+    border-radius: 5px;
+    color: #777777;
+    border: 2px solid#a7a6a6;
+    font-size: 1em;
+    width: 100%;
+  }
+
+  .inputBox input:focus, .inputBox input:valid, .inputBox select:focus, .inputBox select:valid {
+    border: 2px solid #ff8100;
+  }
+.xg input {
+    padding: 15px 20px;
+    outline: none;
+    background: transparent;
+    border-radius: 5px;
+    color: #777777;
+    border: 2px solid#a7a6a6;
+    font-size: 1em;
+    width: 100%;
+  }
+
+    .xg input:focus, .xg input:valid {
+        border: 2px solid #ff8100;
+    }
+  
+  
+  .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 15px 20px;
+    pointer-events: none;
+    font-size: 1em;
+    transition: 0.4s cubic-bezier(0.05, 0.81, 0, 0.93);
+    color: #777777;
+    letter-spacing: 0.1em;
+  }
+  
+  .inputBox input:focus ~ span,
+  .inputBox input:valid ~ span {
+    font-size: 0.7em;
+    transform: translateX(14px) translateY(-7.5px);
+    padding: 0 5px;
+    border-radius: 2px;
+    background: rgb(255, 255, 255);
+    letter-spacing: 0em;
+    border: 1px solid #ff8100;
+  }
+  
+
+  .inputBox select:focus ~ span,
+  .inputBox select:valid ~ span {
+    font-size: 0.7em;
+    transform: translateX(14px) translateY(-7.5px);
+    padding: 0 5px;
+    border-radius: 2px;
+    background: rgb(255, 255, 255);
+    letter-spacing: 0em;
+    border: 1px solid #ff8100;
+  }
+  
