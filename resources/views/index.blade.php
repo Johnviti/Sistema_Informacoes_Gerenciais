@@ -24,7 +24,7 @@
 <body>
 <div>
 @include('layouts.navbar') 
-<div class="container" id="landing">
+<div class="container" id="index">
     <img src="..\img\Camada_x0020_1.png" alt="" class="img_home">
     <div class="info">
         <h1>Tenha relatorios sobre a sua empresa, com dashboard interativos!</h1>
