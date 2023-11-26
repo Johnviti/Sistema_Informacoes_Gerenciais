@@ -242,29 +242,11 @@ body.dark {
   display: none;
 }
 
-.form-container {
-  position: relative;
-  margin-top: 100px !important;
-  left: calc(18% + 30px);
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  max-width: 950px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.5s ease;
-}
 
 .sidebar.close ~ .form-container{
   left: calc(80px + 30px);
  }
  
-.titulo-form{
-  font-family: Manrope;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
 .form-container.dark{
   background-color: #333;
   color: #fff !important;
@@ -347,7 +329,7 @@ h1{
 /* button */
 
 .btn-cancel{
-  padding: 9px 12px;
+  padding: 9px 70px;
   margin-top: 10px;
   align-items: flex-start;
   gap: 10px;
@@ -365,7 +347,7 @@ h1{
 }
 
 .btn-save{
-  padding: 9px 12px;
+  padding: 9px 70px;
   margin-top: 10px;
   align-items: flex-start;
   gap: 10px;
@@ -495,3 +477,4 @@ h1{
 .comparativo-vendedores {
   display: none; /* Inicialmente invisível */
 }
+

@@ -263,8 +263,10 @@ const mixedChart = new Chart(ctx, {
 </script>
 <script>
   $(document).ready(function(){
-    document.getElementById('comparativo-loja').style.display = 'block';
-    document.getElementById('comparativo-vendedores').style.display = 'none';
+    setTimeout(() => {
+      document.getElementById('comparativo-vendedores').style.display = 'none';
+      document.getElementById('comparativo-loja').style.display = 'block';
+    }, 1);
   });
 
   function showLoja() {

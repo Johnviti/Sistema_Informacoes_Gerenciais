@@ -29,13 +29,13 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
     {{-- CSS da aplicação --}}
     <link rel="stylesheet" href="..\css\style.css">
-   
+    {{-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   </head>
   <body>
     @include('layouts.navbar')
     @yield('content') 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="\js\script.js"></script>
     <script src="js/chart.js" ></script>
     <script src="js/main.js"></script>

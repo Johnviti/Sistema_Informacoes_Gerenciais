@@ -1,0 +1,49 @@
+.form-container {
+    position: relative;
+    margin-top: 100px !important;
+    left: calc(18% + 30px);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.titulo-form{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.dados-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    
+}
+
+.item-form {
+    width: 48%;
+}
+
+.xg-item{
+    width: 100%;
+}
+
+.col-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-top: 20px;
+}
