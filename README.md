@@ -46,3 +46,12 @@ Inicie o servidor de desenvolvimento:
 php artisan serve
 **Acesse o aplicativo em http://localhost:8000.**
 
+**Link do figma**
+
+https://www.figma.com/file/GTbFGj6xgMlOiMitg6FoXe/Prot%C3%B3tipo-MDados?type=design&node-id=0%3A1&mode=design&t=l1Qlf0GzcGiAxR3L-1
+
+**Equipe de Desenvolvimento:**
+
+Jonh Victor (FullStack) - Figma, Front-end e Back
+Tainá Miranda (Back) - Banco de Dados
+
