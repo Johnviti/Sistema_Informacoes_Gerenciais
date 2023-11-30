@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMetodoPagamentoTable extends Migration
+class CreateFornecedorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateMetodoPagamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('metodo_pagamento', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('forma_de_pagamento', 30);
-        
+        Schema::create('fornecedor', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome_fornecedor', 50);
+            $table->string('email', 50);
+            $table->string('cpf_cnpj', 50);
+            $table->string('cep', 30);
+            $table->string('telefone', 30);
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateMetodoPagamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metodo_pagamento');
+        Schema::dropIfExists('fornecedor');
     }
 }

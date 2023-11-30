@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('clientes_vendas', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id_cliente')->references('id')->on('clientes');
-            $table->foreign('id_venda')->references('id')->on('vendas');
+            $table->foreignId('cliente_id')->constrained('clientes');
+            $table->foreignId('venda_id')->constrained('vendas');
             $table->timestamps();
         });
     }

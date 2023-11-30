@@ -15,8 +15,7 @@ class CreateMotosTable extends Migration
             $table->string('cor')->nullable();
             $table->decimal('preco', 10, 2);
             $table->boolean('disponivel')->default(true);
-            $table->unsignedBigInteger('id_fornecedor')->nullable();
-            $table->foreign('id_fornecedor')->references('id')->on('fornecedores');
+            $table->foreignId('fornecedor_id')->constrained('fornecedor');
             $table->integer('qtd_estoque')->default(0);
             $table->timestamps();
         });

@@ -12,12 +12,10 @@ class CreateVendasTable extends Migration
             $table->id();
             $table->date('data_venda');
             $table->decimal('preco_venda', 10, 2);
-            $table->unsignedBigInteger('funcionario_id');
-            $table->foreign('loja_id')->references('id')->on('lojas');
-            $table->foreign('moto_id')->references('id')->on('motos');
-            $table->foreign('metodo_pagamento_id')->references('id')->on('metodos_pagamento'); 
-            $table->foreign('funcionario_id')->references('id')->on('funcionarios');
-            
+            $table->foreignId('loja_id')->constrained('lojas');
+            $table->foreignId('moto_id')->constrained('motos');
+            $table->foreignId('metodo_pagamento_id')->constrained('metodo_pagamento'); 
+            $table->foreignId('funcionario_id')->constrained('funcionarios');
             $table->timestamps();
         });
     }

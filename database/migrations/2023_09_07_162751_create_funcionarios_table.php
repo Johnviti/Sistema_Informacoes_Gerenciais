@@ -13,11 +13,10 @@ class CreateFuncionariosTable extends Migration
             $table->string('nome_funcionario');
             $table->string('cargo');
             $table->decimal('salario', 10, 2);
-            $table->unsignedBigInteger('id_loja');
+            $table->foreignId('loja_id')->constrained('lojas');
             $table->timestamps();
-
-            $table->foreign('id_loja')->references('id')->on('lojas');
         });
+        
     }
 
     public function down()
