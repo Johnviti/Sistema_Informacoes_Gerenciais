@@ -14,16 +14,7 @@ class CreateMotoTable extends Migration
     public function up()
     {
         Schema::create('moto', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nome', 50);
-            $table->date('ano');
-            $table->string('marca', 30);
-            $table->string('modelo', 30);
-            $table->string('preco', 30);
             
-            $table->integer('loja_id');
-            $table->integer('forncedor_id');
-            $table->timestamps();
         });
     }
 

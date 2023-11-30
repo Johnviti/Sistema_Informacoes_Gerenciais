@@ -15,7 +15,7 @@ class CreateLojaTable extends Migration
     {
         Schema::create('loja', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome', 30);
+            $table->string('loja_nome', 30);
             $table->string('estado', 30);
             $table->string('cidade', 30);
             $table->string('bairro', 30);
