@@ -17,13 +17,13 @@ class MetodosPagamentoTableSeeder extends Seeder
         DB::table('metodo_pagamento')->insert([
             [
                 'id' => 1,
-                'nome' => 'Dinheiro',
+                'forma_de_pagamento' => 'Dinheiro',
                 'created_at' => null,
                 'updated_at' => null,
             ],
             [
                 'id' => 2,
-                'nome' => 'Cartão',
+                'forma_de_pagamento' => 'Cartão',
                 'created_at' => null,
                 'updated_at' => null,
             ],

@@ -1,38 +1,29 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateVendaTable extends Migration
+class CreateVendasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('venda', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('descricao', 50);
-            $table->integer('valor_total');
-            $table->integer('cliente_id');
-            $table->integer('funcionario_id');
-            $table->integer('loja_id');
-            $table->integer('moto_id');
-            $table->integer('metodo_pagamento_id');
+        Schema::create('vendas', function (Blueprint $table) {
+            $table->id();
+            $table->date('data_venda');
+            $table->decimal('preco_venda', 10, 2);
+            $table->unsignedBigInteger('funcionario_id');
+            $table->foreign('loja_id')->references('id')->on('lojas');
+            $table->foreign('moto_id')->references('id')->on('motos');
+            $table->foreign('metodo_pagamento_id')->references('id')->on('metodos_pagamento'); 
+            $table->foreign('funcionario_id')->references('id')->on('funcionarios');
+            
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('venda');
+        Schema::dropIfExists('vendas');
     }
 }

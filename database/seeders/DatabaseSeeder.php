@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             LojasTableSeeder::class,
             VendasTableSeeder::class,
             FornecedoresTableSeeder::class,
+            ClientesVendasTableSeeder::class,
         ]);
     }
 }

@@ -1,38 +1,27 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateFuncionarioTable extends Migration
+class CreateFuncionariosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('funcionario', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nome', 30);
-            $table->string('email', 50);
-            $table->string('telefone', 30);
-            $table->string('cpf', 30);
-            //$table->integer('funcao', 50);
-          //  $table->string('responsavel', 50);
-
+        Schema::create('funcionarios', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome_funcionario');
+            $table->string('cargo');
+            $table->decimal('salario', 10, 2);
+            $table->unsignedBigInteger('id_loja');
             $table->timestamps();
+
+            $table->foreign('id_loja')->references('id')->on('lojas');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('funcionario');
+        Schema::dropIfExists('funcionarios');
     }
 }

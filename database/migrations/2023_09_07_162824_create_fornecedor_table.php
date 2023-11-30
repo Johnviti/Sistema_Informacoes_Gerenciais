@@ -15,11 +15,10 @@ class CreateFornecedorTable extends Migration
     {
         Schema::create('fornecedor', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome', 50);
+            $table->string('nome_fornecedor', 50);
             $table->string('email', 50);
             $table->string('cpf_cnpj', 50);
             $table->string('cep', 30);
-
             $table->string('telefone', 30);
             $table->timestamps();
         });

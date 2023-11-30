@@ -15,7 +15,7 @@ class CreateMetodoPagamentoTable extends Migration
     {
         Schema::create('metodo_pagamento', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nome', 30);
+            $table->string('forma_de_pagamento', 30);
         
             $table->timestamps();
         });

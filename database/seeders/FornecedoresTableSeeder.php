@@ -17,7 +17,7 @@ class FornecedoresTableSeeder extends Seeder
         DB::table('fornecedor')->insert([
             [
                 'id' => 1,
-                'nome' => 'Motos Pereira Ltda.',
+                'nome_fornecedor' => 'Motos Pereira Ltda.',
                 'email' => 'motospereira@gmail.com',
                 'cpf_cnpj' => '12345678901',
                 'cep' => '25364-747',
@@ -27,7 +27,7 @@ class FornecedoresTableSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'nome' => 'Miranda Motos S.A.',
+                'nome_fornecedor' => 'Miranda Motos S.A.',
                 'email' => 'mirandamotos@email.com',
                 'cpf_cnpj' => '23456789012',
                 'cep' => '94848',
@@ -37,7 +37,7 @@ class FornecedoresTableSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'nome' => 'Fornecedora de Peças Silva',
+                'nome_fornecedor' => 'Fornecedora de Peças Silva',
                 'email' => 'fornecedorasilva@email.com',
                 'cpf_cnpj' => '34567890123',
                 'cep' => '66666-666',
