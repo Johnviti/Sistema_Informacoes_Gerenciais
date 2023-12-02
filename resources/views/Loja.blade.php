@@ -11,11 +11,10 @@
     <form action="{{Route("adicionarLoja")}}" method="POST" >
         @csrf
         <div class="dados-container">
+            
             <div class="item-form">
-                {{-- <label for="name" class="form-label">Nome:</label>
-                <input  required ="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome da loja"> --}}
                 <div class="inputBox">
-                    <input required="" type="text" name="nome_loja" id="nome">
+                    <input required="" type="text" name="nome_loja" id="nome_loja">
                     <span>Nome Loja</span>
                 </div> 
             </div>

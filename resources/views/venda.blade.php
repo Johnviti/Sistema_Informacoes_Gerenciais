@@ -14,47 +14,59 @@
         @csrf
         <div class="dados-container">
             <div class="item-form">
-                {{-- <label for="name" class="form-label">Descrição:</label>
-                <input  required ="text" class="form-control" id="descricao" name="descricao" placeholder="Digite a descrição da venda"> --}}
                 <div class="inputBox">
-                    <input required="" type="text" name="descricao" id="descrica">
-                    <span>Nome Loja</span>
+                    <input required="" type="date" name="data_venda" id="data_venda">
+                    <span>Data</span>
                 </div> 
             </div>
             <div class="item-form">
-                {{-- <label for="name" class="form-label">Valor:</label>
-                <input required type="text" class="form-control" id="valor_total" name="valor_total" placeholder="Digite o valor total"> --}}
                 <div class="inputBox">
-                    <input required="" type="text" name="valor_total" id="valor_total">
-                    <span>Valor Total</span>
+                    <input required="" type="text" name="preco_venda" id="preco_venda">
+                    <span>Preço</span>
+            </div>
+            <div class="item-form">
+                <div class="inputBox">
+                    <select required="" name="loja_id" id="loja_id">
+                        <option value=""disabled selected></option>
+                        @foreach ($lojas as $loja)
+                            <option value="{{ $loja->id }}">{{ $loja->nome_loja }}</option>
+                        @endforeach
+                    </select>
+                    <span>Loja</span>
                 </div>
             </div>
             <div class="item-form">
-                {{-- <label for="name" class="form-label">Método de pagamento:</label>
-                <select  class="form-control"  name="metodo_pagamento_id" id="metodo_pagamento_id">
-                    <option value="">Selecione um método de pagamento</option>
-                    @foreach ($metodosPagamento as $metodo)
-                        <option value="{{ $metodo->id }}">{{ $metodo->nome }}</option>
-                    @endforeach
-                </select> --}}
+                <div class="inputBox">
+                    <select required="" name="moto_id" id="moto_id">
+                        <option value=""disabled selected></option>
+                        @foreach ($motos as $moto)
+                            <option value="{{ $moto->id }}">{{ $moto->modelo }}</option>
+                        @endforeach
+                    </select>
+                    <span>Moto</span>
+                </div>
+            </div>
              <div class="inputBox">
                 <select required="" name="metodo_pagamento_id" id="metodo_pagamento_id">
                     <option value=""disabled selected></option>
                     @foreach ($metodosPagamento as $metodo)
-                        <option value="{{ $metodo->id }}">{{ $metodo->nome }}</option>
+                        <option value="{{ $metodo->id }}">{{ $metodo->forma_de_pagamento }}</option>
                      @endforeach
                 </select>
                 <span>Método de pagamento</span>
             </div>
+            <div class="item-form">
+                <div class="inputBox">
+                    <select required="" name="funcionario_id" id="funcionario_id">
+                        <option value=""disabled selected></option>
+                        @foreach ($funcionarios as $funcionario)
+                            <option value="{{ $funcionario->id }}">{{ $funcionario->nome_funcionario }}</option>
+                        @endforeach
+                    </select>
+                    <span>Funcionário</span>
+                </div>
             </div>
             <div class="item-form">
-                {{-- <label for="name" class="form-label">Cliente:</label>
-                <select  class="form-control"  name="cliente_id" id="cliente_id">
-                <option value="">Selecione um cliente</option>
-                @foreach ($clientes as $cliente)
-                    <option value="{{ $cliente->id }}">{{ $cliente->nome }}</option>
-                @endforeach
-                </select> --}}
                 <div class="inputBox">
                     <select required="" name="cliente_id" id="cliente_id">
                         <option value=""disabled selected></option>
@@ -63,60 +75,6 @@
                         @endforeach
                     </select>
                     <span>Cliente</span>
-                </div>
-            </div>
-            <div class="item-form">
-                {{-- <label for="name" class="form-label">Funcionário:</label>
-                <select  class="form-control"  name="funcionario_id" id="funcionario_id">
-                    <option value="">Selecione um funcionário</option>
-                    @foreach ($funcionarios as $funcionario)
-                        <option value="{{ $funcionario->id }}">{{ $funcionario->nome }}</option>
-                    @endforeach
-                </select> --}}
-                <div class="inputBox">
-                    <select required="" name="funcionario_id" id="funcionario_id">
-                        <option value=""disabled selected></option>
-                        @foreach ($funcionarios as $funcionario)
-                            <option value="{{ $funcionario->id }}">{{ $funcionario->nome }}</option>
-                        @endforeach
-                    </select>
-                    <span>Funcionário</span>
-                </div>
-            </div>
-            <div class="item-form">
-                {{-- <label for="name" class="form-label">Loja:</label>
-                <select  class="form-control"  name="loja_id" id="loja_id">
-                    <option value="">Selecione uma loja</option>
-                    @foreach ($lojas as $loja)
-                        <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
-                    @endforeach
-                 </select> --}}
-                <div class="inputBox">
-                    <select required="" name="loja_id" id="loja_id">
-                        <option value=""disabled selected></option>
-                        @foreach ($lojas as $loja)
-                            <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
-                        @endforeach
-                    </select>
-                    <span>Loja</span>
-                </div>
-            </div>
-            <div class="item-form">
-                {{-- <label for="name" class="form-label">Moto:</label>
-                <select  class="form-control"  name="moto_id" id="moto_id">
-                <option value="">Selecione uma moto</option>
-                @foreach ($motos as $moto)
-                    <option value="{{ $moto->id }}">{{ $moto->nome }}</option>
-                @endforeach
-                </select> --}}
-                <div class="inputBox">
-                    <select required="" name="moto_id" id="moto_id">
-                        <option value=""disabled selected></option>
-                        @foreach ($motos as $moto)
-                            <option value="{{ $moto->id }}">{{ $moto->nome }}</option>
-                        @endforeach
-                    </select>
-                    <span>Moto</span>
                 </div>
             </div>
         </div>

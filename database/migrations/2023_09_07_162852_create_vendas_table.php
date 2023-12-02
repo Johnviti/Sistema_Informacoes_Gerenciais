@@ -16,6 +16,7 @@ class CreateVendasTable extends Migration
             $table->foreignId('moto_id')->constrained('motos');
             $table->foreignId('metodo_pagamento_id')->constrained('metodo_pagamento'); 
             $table->foreignId('funcionario_id')->constrained('funcionarios');
+            $table->foreignId('cliente_id')->constrained('clientes');
             $table->timestamps();
         });
     }

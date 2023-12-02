@@ -18,32 +18,24 @@
                 {{-- <label for="name" class="form-label">Nome:</label>
                 <input  required ="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome da moto"> --}}
                 <div class="inputBox">
-                    <input required="" type="text" name="nome" id="nome">
-                    <span>Nome Moto</span>
+                    <input required="" type="text" name="modelo" id="modelo">
+                    <span>Modelo</span>
                 </div> 
             </div>
             <div class="item-form">
                 {{-- <label for="name" class="form-label">Ano:</label>
                 <input required type="date" class="form-control" id="ano" name="ano" placeholder="Digite o ano da moto"> --}}
                 <div class="inputBox">
-                    <input required="" type="date" name="ano" id="ano">
-                    <span>Ano</span>
+                    <input required="" type="date" name="ano_fabricacao" id="ano_fabricacao">
+                    <span>Ano de Fabricação</span>
                 </div>
             </div>
             <div class="item-form">
                 {{-- <label for="name" class="form-label">Marca:</label>
                 <input required type="text" class="form-control" id="marca" name="marca" placeholder="Digite a marca"> --}}
                 <div class="inputBox">
-                    <input required="" type="text" name="marca" id="marca">
-                    <span>Marca</span>
-                </div>
-            </div>
-            <div class="item-form">
-                {{-- <label for="name" class="form-label">Modelo:</label>
-                <input required type="text" class="form-control" id="modelo" name="modelo" placeholder="Digite a modelo"> --}}
-                <div class="inputBox">
-                    <input required="" type="text" name="modelo" id="modelo">
-                    <span>Modelo</span>
+                    <input required="" type="text" name="cor" id="cor">
+                    <span>Cor</span>
                 </div>
             </div>
             <div class="item-form">
@@ -55,24 +47,13 @@
                 </div>
             </div>
             <div class="item-form">
-                {{-- <label for="name" class="form-label">Loja:</label>
-                <select class="form-control js-example-basic-single" name="loja_id" id="loja_id">
-                    <option value="">Selecione uma loja</option>
-                    @foreach ($lojas as $loja)
-                        <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
-                    @endforeach
-                </select> --}}
+                {{-- <label for="name" class="form-label">Preço:</label>
+                <input required type="number" class="form-control" id="preco" name="preco" placeholder="Digite a preço"> --}}
                 <div class="inputBox">
-                    <select required="" type="text" name="loja_id" id="loja_id">
-                        <option value=""disabled selected></option>
-                        @foreach ($lojas as $loja)
-                            <option value="{{ $loja->id }}">{{ $loja->nome }}</option>
-                        @endforeach
-                    </select>
-                    <span>Loja</span>
+                    <input required="" type="number" name="qtd_estoque" id="qtd_estoque">
+                    <span>Quantidade</span>
                 </div>
             </div>
-
             <div class="item-form">
                 {{-- <label for="name" class="form-label">Fornecedor:</label>
                 <select class="form-control" name="forncedor_id" id="forncedor_id">
