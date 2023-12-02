@@ -16,7 +16,7 @@
                     {{-- <label for="name" class="form-label">Nome:</label>
                     <input  required ="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome"> --}}
                     <div class="inputBox">
-                        <input required="" type="text" name="nome" id="nome">
+                        <input required="" type="text" name="nome_fornecedor" id="nome">
                         <span>Nome</span>
                       </div>  
                 </div>

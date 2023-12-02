@@ -15,7 +15,7 @@
                 {{-- <label for="name" class="form-label">Nome:</label>
                 <input  required ="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome da loja"> --}}
                 <div class="inputBox">
-                    <input required="" type="text" name="nome" id="nome">
+                    <input required="" type="text" name="nome_loja" id="nome">
                     <span>Nome Loja</span>
                 </div> 
             </div>
@@ -36,35 +36,11 @@
                 </div>
             </div>
             <div class="item-form">
-                {{-- <label for="name" class="form-label">Cidade:</label>
-                <input required type="text" class="form-control" id="cidade" name="cidade" placeholder="Digite a cidade"> --}}
-                <div class="inputBox">
-                    <input required="" type="text" name="cidade" id="cidade">
-                    <span>Cidade</span>
-                </div>
-            </div>
-            <div class="item-form">
-                {{-- <label for="name" class="form-label">Bairro:</label>
-                <input required type="text" class="form-control" id="bairro" name="bairro" placeholder="Digite o bairro"> --}}
-                <div class="inputBox">
-                    <input required="" type="text" name="bairro" id="bairro">
-                    <span>Bairro</span>
-                </div>
-            </div>
-            <div class="item-form">
                 {{-- <label for="name" class="form-label">Rua:</label>
                 <input  required type="text" class="form-control" id="rua" name="rua" placeholder="Digite a rua"> --}}
                 <div class="inputBox">
-                    <input required="" type="text" name="rua" id="rua">
-                    <span>Rua</span>
-                </div>
-            </div>
-            <div class="col-md-12 col-md">
-                {{-- <label for="name" class="form-label">Complemento:</label>
-                <input type="text" class="form-control" id="complemento" name="complemento" placeholder="opcional"> --}}
-                <div class="inputBox">
-                    <input required="" type="text" name="complemento" id="complemento">
-                    <span>Complemento</span>
+                    <input required="" type="text" name="endereco" id="endereco">
+                    <span>Endereço</span>
                 </div>
             </div>
         </div>

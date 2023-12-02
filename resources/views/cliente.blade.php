@@ -41,30 +41,6 @@
                     <span>CEP</span>
                 </div>
             </div>
-            <div class="item-form">
-                <div class="inputBox"> 
-                    <input required="" type="text" name="estado" id="estado">
-                    <span>Estado</span>
-                </div>
-            </div>
-            <div class="item-form">
-                <div class="inputBox"> 
-                    <input required="" type="text" name="cidade" id="cidade">
-                    <span>Cidade</span>
-                </div>
-            </div>
-            <div class="item-form">
-                <div class="inputBox">  
-                    <input required="" type="text" name="bairro" id="bairro">
-                    <span>Bairro</span>
-                </div>
-            </div>
-            <div class="item-form">
-                <div class="inputBox xg">
-                    <input required="" type="text" name="rua" id="rua">
-                    <span>Rua</span> 
-                </div>
-            </div>
         </div>
         <div class="col-btn">
             <button type="submit" class="btn btn-save">Salvar</button>
